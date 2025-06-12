@@ -4,15 +4,34 @@ Student number: 0617328
 Date: 9.6.2025
 */
 
-#include <stdio.h>>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 void unzip(char *fileName){
     FILE *file;
+    int count, character;
 
-    file = fopen(fileName, "r");
+    file = fopen(fileName, "rb"); //Open binary mode
+    if(file == NULL){
+        printf("Cant open\n");
+        exit(1);
+    }
 
+    while(fread(&count, sizeof(int), 1, file) == 1){
+        character = fgetc(file);
+        if(character == EOF){
+            printf("Bad file\n");
+            fclose(file);
+            exit(1);
+        }
+
+        for(int i=0; i<count; i++){
+            fputc(character, stdout);
+        }
+    }
+
+    fclose(file);
     return;
 }
 
