@@ -32,14 +32,15 @@ void print_file(char* fileName){
     return;
 }
 
+//Main method
 int main(int argc, char* argv[]){
     
-    //No files provided
+    //No files provided, exit instantly
     if(argc < 2){
-        //printf("Usage my-cat filenames\n");
         exit(0);
     }
 
+    //For loop, to cat all files
     for(int i=1; i<argc; i++){
         print_file(argv[i]);
     }
