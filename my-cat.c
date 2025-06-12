@@ -34,9 +34,9 @@ void print_file(char* fileName){
 
 int main(int argc, char* argv[]){
     
-    //No arguments provided
+    //No files provided
     if(argc < 2){
-        printf("Usage my-cat filenames\n");
+        //printf("Usage my-cat filenames\n");
         exit(0);
     }
 
